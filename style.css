@@ -35,6 +35,46 @@ body {
   background: #f7f7f7;
 }
 
+section {
+  padding: 2rem 9%;
+}
+
+.btn {
+  display: inline-block;
+  font-size: 1.7rem;
+  position: relative;
+  border: 2px solid var(--red);
+  border-radius: 0.5rem;
+  padding: 0.7rem 3rem;
+  background-color: #fff;
+  color: var(--red);
+  cursor: pointer;
+  z-index: 0;
+  overflow: hidden;
+  margin-top: 1rem;
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 100%;
+  background: red;
+  transition: 0.3s linear;
+  z-index: -1;
+}
+
+.btn:hover::before {
+  width: 100%;
+  left: 0;
+}
+
+.btn:hover {
+  color: #fff;
+}
+
 /* Header Section */
 
 header {
@@ -82,6 +122,55 @@ header .navbar a:hover {
   display: none;
 }
 
+/* Home section */
+
+.home {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+  min-height: 100vh;
+  background: url(/images/home-bg.jpg) no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.home .content {
+  flex: 1 1 40rem;
+  padding-top: 6.5rem;
+}
+
+.content h3 {
+  font-size: 5rem;
+  color: #000;
+}
+
+.content p {
+  font-size: 1.7rem;
+  color: #666;
+  /* padding: 1rem; */
+}
+
+.home .img {
+  flex: 1 1 40rem;
+}
+
+.home .img img {
+  width: 100%;
+  padding: 1rem;
+  animation: float 3s linear infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0rem);
+  }
+  50% {
+    transform: translateY(3rem);
+  }
+}
+
 /* Media Queries */
 @media (max-width: 991px) {
   html {
@@ -89,6 +178,10 @@ header .navbar a:hover {
   }
 
   header {
+    padding: 2rem;
+  }
+
+  section {
     padding: 2rem;
   }
 }
